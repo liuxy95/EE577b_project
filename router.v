@@ -150,7 +150,7 @@ begin
 	else begin
 		case(state_cw_odd)
 			2'b00: begin
-				if(cwsi==1'b1 && cwri==1'b1 && polarity==1'b0) begin
+				if(cwsi==1'b1 && cwi_reg_full[ODD]==1'b0 && polarity==1'b0) begin
 					state_cw_odd<=2'b01;
 					cwi_reg_full[ODD]<=1'b1;
 				end
@@ -172,7 +172,7 @@ begin
 				end
 			end
 			2'b10: begin
-				if(cwsi==1'b1 && cwri==1'b1 && polarity==1'b0) begin
+				if(cwsi==1'b1 && cwi_reg_full[ODD]==1'b0 && polarity==1'b0) begin
 					state_cw_odd<=2'b01;
 					cwi_reg_full[ODD]<=1'b1;
 				end
@@ -180,7 +180,7 @@ begin
 					state_cw_odd<=2'b00;
 			end
 			2'b11: begin
-				if(cwsi==1'b1 && cwri==1'b1 && polarity==1'b0) begin
+				if(cwsi==1'b1 && cwi_reg_full[ODD]==1'b0 && polarity==1'b0) begin
 					state_cw_odd<=2'b01;
 					cwi_reg_full[ODD]<=1'b1;
 				end
@@ -196,7 +196,7 @@ begin
 	else begin
 		case(state_cw_even)
 			2'b00: begin
-				if(cwsi==1'b1 && cwri==1'b1 && polarity==1'b1) begin
+				if(cwsi==1'b1 && cwi_reg_full[EVEN]==1'b0 && polarity==1'b1) begin
 					state_cw_even<=2'b01;
 					cwi_reg_full[EVEN]<=1'b1;
 				end
@@ -218,7 +218,7 @@ begin
 				end
 			end
 			2'b10: begin
-				if(cwsi==1'b1 && cwri==1'b1 && polarity==1'b1) begin
+				if(cwsi==1'b1 && cwi_reg_full[EVEN]==1'b0 && polarity==1'b1) begin
 					state_cw_even<=2'b01;
 					cwi_reg_full[EVEN]<=1'b1;
 				end
@@ -226,7 +226,7 @@ begin
 					state_cw_even<=2'b00;
 			end
 			2'b11: begin
-				if(cwsi==1'b1 && cwri==1'b1 && polarity==1'b1) begin
+				if(cwsi==1'b1 && cwi_reg_full[EVEN]==1'b0 && polarity==1'b1) begin
 					state_cw_even<=2'b01;
 					cwi_reg_full[EVEN]<=1'b1;
 				end
@@ -245,7 +245,7 @@ begin
 	else begin
 		case(state_ccw_odd)
 			2'b00: begin
-				if(ccwsi==1'b1 && ccwri==1'b1 && polarity==1'b0) begin
+				if(ccwsi==1'b1 && ccwi_reg_full[ODD]==1'b0 && polarity==1'b0) begin
 					state_ccw_odd<=2'b01;
 					ccwi_reg_full[ODD]<=1'b1;
 				end
@@ -267,7 +267,7 @@ begin
 				end
 			end
 			2'b10: begin
-				if(ccwsi==1'b1 && ccwri==1'b1 && polarity==1'b0) begin
+				if(ccwsi==1'b1 && ccwi_reg_full[ODD]==1'b0 && polarity==1'b0) begin
 					state_ccw_odd<=2'b01;
 					ccwi_reg_full[ODD]<=1'b1;
 				end
@@ -275,7 +275,7 @@ begin
 					state_ccw_odd<=2'b00;
 			end
 			2'b11: begin
-				if(ccwsi==1'b1 && ccwri==1'b1 && polarity==1'b0) begin
+				if(ccwsi==1'b1 && ccwi_reg_full[ODD]==1'b0 && polarity==1'b0) begin
 					state_ccw_odd<=2'b01;
 					ccwi_reg_full[ODD]<=1'b1;
 				end
@@ -291,7 +291,7 @@ begin
 	else begin
 		case(state_ccw_even)
 			2'b00: begin
-				if(ccwsi==1'b1 && ccwri==1'b1 && polarity==1'b1) begin
+				if(ccwsi==1'b1 && ccwi_reg_full[EVEN]==1'b0 && polarity==1'b1) begin
 					state_ccw_even<=2'b01;
 					ccwi_reg_full[EVEN]<=1'b1;
 				end
@@ -313,7 +313,7 @@ begin
 				end
 			end
 			2'b10: begin
-				if(ccwsi==1'b1 && ccwri==1'b1 && polarity==1'b1) begin
+				if(ccwsi==1'b1 && ccwi_reg_full[EVEN]==1'b0 && polarity==1'b1) begin
 					state_ccw_even<=2'b01;
 					ccwi_reg_full[EVEN]<=1'b1;
 				end
@@ -321,7 +321,7 @@ begin
 					state_ccw_even<=2'b00;
 			end
 			2'b11: begin
-				if(ccwsi==1'b1 && ccwri==1'b1 && polarity==1'b1) begin
+				if(ccwsi==1'b1 && ccwi_reg_full[EVEN]==1'b0 && polarity==1'b1) begin
 					state_ccw_even<=2'b01;
 					ccwi_reg_full[EVEN]<=1'b1;
 				end
@@ -340,7 +340,7 @@ begin
 	else begin
 		case(state_pe_odd)
 			2'b00: begin
-				if(pesi==1'b1 && peri==1'b1 && polarity==1'b0) begin
+				if(pesi==1'b1 && pei_reg_full[ODD]==1'b0 && polarity==1'b0) begin
 					state_pe_odd<=2'b01;
 					pei_reg_full[ODD]<=1'b1;
 				end
@@ -360,7 +360,7 @@ begin
 				end
 			end
 			2'b10: begin
-				if(pesi==1'b1 && peri==1'b1 && polarity==1'b0) begin
+				if(pesi==1'b1 && pei_reg_full[ODD]==1'b0 && polarity==1'b0) begin
 					state_pe_odd<=2'b01;
 					pei_reg_full[ODD]<=1'b1;
 				end
@@ -368,7 +368,7 @@ begin
 					state_pe_odd<=2'b00;
 			end
 			2'b11: begin
-				if(pesi==1'b1 && peri==1'b1 && polarity==1'b0) begin
+				if(pesi==1'b1 && pei_reg_full[ODD]==1'b0 && polarity==1'b0) begin
 					state_pe_odd<=2'b01;
 					pei_reg_full[ODD]<=1'b1;
 				end
@@ -383,7 +383,7 @@ begin
 	else begin
 		case(state_pe_even)
 			2'b00: begin
-				if(pesi==1'b1 && peri==1'b1 && polarity==1'b1) begin
+				if(pesi==1'b1 && pei_reg_full[EVEN]==1'b0 && polarity==1'b1) begin
 					state_pe_even<=2'b01;
 					pei_reg_full[EVEN]<=1'b1;
 				end
@@ -403,7 +403,7 @@ begin
 				end
 			end
 			2'b10: begin
-				if(pesi==1'b1 && peri==1'b1 && polarity==1'b1) begin
+				if(pesi==1'b1 && pei_reg_full[EVEN]==1'b0 && polarity==1'b1) begin
 					state_pe_even<=2'b01;
 					pei_reg_full[EVEN]<=1'b1;
 				end
@@ -411,7 +411,7 @@ begin
 					state_pe_even<=2'b00;
 			end
 			2'b11: begin
-				if(pesi==1'b1 && peri==1'b1 && polarity==1'b1) begin
+				if(pesi==1'b1 && pei_reg_full[EVEN]==1'b0 && polarity==1'b1) begin
 					state_pe_even<=2'b01;
 					pei_reg_full[EVEN]<=1'b1;
 				end
