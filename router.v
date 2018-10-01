@@ -99,6 +99,10 @@ assign pedo = polarity ? pedo_even : pedo_odd;
 assign cwso = polarity ? cwo_reg_full[EVEN] :cwo_reg_full[ODD];
 assign ccwso = polarity ? ccwo_reg_full[EVEN] :ccwo_reg_full[ODD];
 assign peso = polarity ? peo_reg_full[EVEN] :peo_reg_full[ODD];
+	
+assign	cwri = polarity ? ~cwi_reg_full[EVEN] : ~cwi_reg_full[ODD]; //input register is ready to receive when it is not full
+assign	ccwri = polarity ? ~ccwi_reg_full[EVEN] : ~ccwi_reg_full[ODD];
+assign	peri = polarity ? ~pei_reg_full[EVEN] : ~pei_reg_full[ODD];
 
 ///////////////////////////////////////////////////////////////////////////
 always @(posedge clk)  // state machine for cw input odd channel
@@ -114,10 +118,6 @@ begin
 	end
 	else
 		polarity<=~polarity;
-	
-	cwri <= polarity ? ~cwi_reg_full[EVEN] : ~cwi_reg_full[ODD]; //input register is ready to receive when it is not full
-	ccwri <= polarity ? ~ccwi_reg_full[EVEN] : ~ccwi_reg_full[ODD];
-	peri <= polarity ? ~pei_reg_full[EVEN] : ~pei_reg_full[ODD];
 	
 	cw_reg_odd_en <= ~cwi_reg_full[ODD] && ~polarity && cwsi; // input register for cw odd channel would be enabled when
 													  // the register is not full and polarity equals to 0, and cwsi=1
