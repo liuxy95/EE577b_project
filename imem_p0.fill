@@ -1,0 +1,38 @@
+80000000    // 0 VLD r0 0 ; 0
+80200001    // 4 VLD r1 1 ; r1 reserve for channel check 4
+80400002    // 8 VLD r2 2 ; from 0 to 1 8
+80600003    // VLD r3 3 ; c
+80800004    // VLD r4 4 ; 10
+80A00005    // VLD r5 5 ; 14
+80C00006    // VLD r6 6 ; 18
+80E00007    // VLD r7 7 ;	1c
+81000008    // VLD r8 8 ;	20
+81200009    // VLD r9 9 ;	24
+80600003    // 12 VLD r3 3 ;	28
+8020C001	// read output channel register to r1	2c
+8C20002C    // VBNEZ r1, 16 ; 30
+8440C000	// STORE R2 into NIC	34
+8020C001	// read output channel register to r1	38
+8C200038    // VBNEZ r1, 28 ;	3c
+8460C000	// STORE R2 into NIC
+8020C001	// read output channel register to r1
+8C200044    // VBNEZ r1, 28 ;
+8480C000	// STORE R2 into NIC
+8020C001	// read output channel register to r1
+8C200050    // VBNEZ r1, 28 ;
+84A0C000	// STORE R2 into NIC
+8020C001	// read output channel register to r1
+8C20005C    // VBNEZ r1, 28 ;
+84C0C000	// STORE R2 into NIC
+8020C001	// read output channel register to r1
+8C200068    // VBNEZ r1, 28 ;
+84E0C000	// STORE R2 into NIC
+8020C001	// read output channel register to r1
+8C200074    // VBNEZ r1, 28 ;
+8510C000	// STORE R2 into NIC
+8020C001	// read output channel register to r1
+8C200080    // VBNEZ r1, 28 ;
+8530C000	// STORE R2 into NIC
+00000000
+00000000
+
